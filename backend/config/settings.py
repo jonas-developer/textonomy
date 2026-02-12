@@ -35,6 +35,19 @@ INSTALLED_APPS = [
     "api",
 ]
 
+## Enable or Disable CORS
+def env_bool(name: str, default: bool = False) -> bool:
+    val = os.getenv(name, str(default))
+    return val.strip().lower() in ("1", "true", "yes", "on")
+
+ENABLE_CORS = env_bool("ENABLE_CORS", False)
+
+## Add corsheaders
+if ENABLE_CORS:
+    INSTALLED_APPS = ["corsheaders", *INSTALLED_APPS]
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -44,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if ENABLE_CORS:
+    MIDDLEWARE = ["corsheaders.middleware.CorsMiddleware", *MIDDLEWARE]
 
 ROOT_URLCONF = 'config.urls'
 
@@ -79,10 +95,14 @@ INSTALLED_APPS += ["corsheaders"]
 
 MIDDLEWARE = ["corsheaders.middleware.CorsMiddleware"] + MIDDLEWARE
 
-CORS_ALLOWED_ORIGINS = [
-    "https://textonomy.xyz",
-    "http://localhost:5173",
-]
+## If CORS is enabled add allowed origins
+if ENABLE_CORS:
+    CORS_ALLOWED_ORIGINS = [
+        "https://textonomy.xyz",
+        "https://www.textonomy.xyz",
+        "http://localhost:5173",
+    ]
+
 
 
 

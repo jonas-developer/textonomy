@@ -95,7 +95,6 @@ python --version
 - Fill in the associated API keys, urls, project ids etc as environmental variables (.env file)
 
 ## 2.1. Create .env file on the root directory
-w
 ```bash
 DJANGO_SECRET_KEY=your-secret-key
 DJANGO_DEBUG=True
