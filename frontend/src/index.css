@@ -126,6 +126,7 @@ code {
   gap: 12px;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .btn {
@@ -140,6 +141,7 @@ code {
   min-width: 100%;
   font-size: 20px;
   color: black;
+  width: 100%;
 }
 
 .btn:disabled {
