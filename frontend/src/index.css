@@ -333,6 +333,31 @@ code {
 }
 
 
+/* Prevent mobile horizontal overflow (fixes the bright gradient band) */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Make header responsive on small screens */
+@media (max-width: 480px) {
+  .logo {
+    width: 52px;
+    height: 52px;
+    font-size: 28px;
+  }
+
+  .title {
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .brand {
+    gap: 10px;
+    padding-right: 6px;
+  }
+}
+
+
   /* Hide all cards except the one with the highest score */
 .resultsStack > .resultCard:not(:first-child) {
   display: none;
