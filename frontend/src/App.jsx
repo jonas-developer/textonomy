@@ -158,9 +158,17 @@ export default function App() {
           />
 
           <div className="row">
-            <button className="btn" onClick={analyze} disabled={loading || !text.trim()}>
-              {loading ? "Analyzing…" : "Analyze"}
-            </button>
+            <div className="row">
+              <button className="btn" onClick={analyze} disabled={loading || !text.trim()}>
+                {loading ? "Analyzing…" : "Analyze"}
+              </button>
+
+              <div className={`loaderBar ${loading ? "isLoading" : ""}`} aria-hidden="true">
+                <div className="loaderBarFill" />
+              </div>
+            </div>
+
+
 
           </div>
 

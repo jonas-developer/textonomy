@@ -95,19 +95,6 @@ REST_FRAMEWORK = {
 
 
 
-## If CORS is enabled add allowed origins
-if ENABLE_CORS:
-    CORS_ALLOWED_ORIGINS = [
-        "https://textonomy.xyz",
-        "https://www.textonomy.xyz",
-        "http://localhost:5173",
-    ]
-
-
-
-
-
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 

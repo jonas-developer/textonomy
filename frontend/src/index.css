@@ -283,6 +283,52 @@ code {
   }
 
 
+/* Loader bar (below Analyze button) */
+.loaderBar {
+  width: 100%;
+  height: 10px;
+  margin-top: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.loaderBar.isLoading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loaderBarFill {
+  height: 100%;
+  width: 40%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+
+  transform: translateX(-120%);
+  animation: textonomy-loader-slide 900ms ease-in-out infinite;
+}
+
+@keyframes textonomy-loader-slide {
+  0%   { transform: translateX(-120%); }
+  50%  { transform: translateX(120%); }
+  100% { transform: translateX(-120%); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .loaderBarFill {
+    animation: none;
+    width: 100%;
+    transform: none;
+    opacity: 0.5;
+  }
+}
 
 
   /* Hide all cards except the one with the highest score */
