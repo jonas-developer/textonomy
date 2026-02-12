@@ -35,16 +35,6 @@ INSTALLED_APPS = [
     "api",
 ]
 
-## Enable or Disable CORS
-def env_bool(name: str, default: bool = False) -> bool:
-    val = os.getenv(name, str(default))
-    return val.strip().lower() in ("1", "true", "yes", "on")
-
-ENABLE_CORS = env_bool("ENABLE_CORS", False)
-
-## Add corsheaders
-if ENABLE_CORS:
-    INSTALLED_APPS = ["corsheaders", *INSTALLED_APPS]
 
 
 
@@ -58,8 +48,22 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# CORS (only needed if frontend is on a different origin)
+def env_bool(name: str, default: bool = False) -> bool:
+    val = os.getenv(name, str(default))
+    return val.strip().lower() in ("1", "true", "yes", "on")
+
+ENABLE_CORS = env_bool("ENABLE_CORS", False)
+
 if ENABLE_CORS:
+    INSTALLED_APPS = ["corsheaders", *INSTALLED_APPS]
     MIDDLEWARE = ["corsheaders.middleware.CorsMiddleware", *MIDDLEWARE]
+    CORS_ALLOWED_ORIGINS = [
+        "https://textonomy.xyz",
+        "https://www.textonomy.xyz",
+        "http://localhost:5173",
+    ]
+
 
 ROOT_URLCONF = 'config.urls'
 
@@ -90,10 +94,6 @@ REST_FRAMEWORK = {
 
 
 
-# CORS HEADERS (if needed when putting Frontend on other server)
-INSTALLED_APPS += ["corsheaders"]
-
-MIDDLEWARE = ["corsheaders.middleware.CorsMiddleware"] + MIDDLEWARE
 
 ## If CORS is enabled add allowed origins
 if ENABLE_CORS:
