@@ -1,6 +1,6 @@
 # Textonomy AI
 
-👉 **Live Demo:** https://textonomy.xyz
+👉 **Live Demo:** https://textonomy-1.onrender.com
 
 Textonomy is a multi-LLM AI detection platform that analyzes text and surfaces the highest-likelihood AI signal with transparent reasoning.
 
