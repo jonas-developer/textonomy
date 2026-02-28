@@ -107,7 +107,7 @@ export default function App() {
 
     try {
       // Same-origin call (works with Vite proxy in dev, and /api in prod)
-      const res = await fetch("https://api.textonomy.xyz/api/analyze/", {
+      const res = await fetch("https://textonomy.onrender.com/api/analyze/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
@@ -199,7 +199,7 @@ export default function App() {
         <span className="muted">This is an indicator — not proof.</span>
 
                           <div className="copyright">
-          <span className="url">textonomy.xyz</span>
+          <span className="url">textonomy-1.onrender.com</span>
         </div>
           <div className="copyright">
           Copyright &copy; L.J Bergman
