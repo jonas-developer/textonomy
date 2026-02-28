@@ -59,8 +59,8 @@ if ENABLE_CORS:
     INSTALLED_APPS = ["corsheaders", *INSTALLED_APPS]
     MIDDLEWARE = ["corsheaders.middleware.CorsMiddleware", *MIDDLEWARE]
     CORS_ALLOWED_ORIGINS = [
-        "https://textonomy.xyz",
-        "https://www.textonomy.xyz",
+        "https://textonomy-1.onrender.com/",
+        "https://textonomy.onrender.com/",
         "http://localhost:5173",
     ]
 
