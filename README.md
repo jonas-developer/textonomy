@@ -202,7 +202,7 @@ https://yourdomain/api/    → Django
 
 Try the live version:
 
-👉 https://textonomy.xyz
+👉 [https://textonomy-1.onrender.com](https://textonomy-1.onrender.com)
 
 ## Steps
 
@@ -231,8 +231,6 @@ The system:
 ## Contributing
 
 Contributions, ideas, and issue reports are welcome.
-
-If you'd like to improve Textonomy, please open an issue first to discuss proposed changes.
 
 ## Issues
 
